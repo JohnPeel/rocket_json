@@ -1,8 +1,8 @@
 [package]
 name = "rocket_json"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["John Peel <john@dgby.org>"]
-description = "This create provides a `Error` struct for json responses in Rocket."
+description = "This crate provides a `Error` struct with json responses in Rocket."
 repository = "https://github.com/JohnPeel/rocket_json"
 license = "MIT"
 keywords = ["rocket", "json"]

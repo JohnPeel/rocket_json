@@ -1,9 +1,8 @@
 #[macro_use]
 extern crate rocket_contrib;
 
-mod error;
+pub mod error;
+pub mod result;
 
 pub use error::Error;
-use std::result;
-
-pub type Result<R> = result::Result<R, Error>;
+pub use result::Result;
