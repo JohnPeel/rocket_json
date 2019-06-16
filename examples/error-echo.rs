@@ -3,18 +3,18 @@
 #[macro_use]
 extern crate rocket;
 
-#[macro_use]
-extern crate rocket_contrib;
-
 use rocket::http::Status;
-use rocket_json::{Error, Result};
+use rocket::response::Result;
+use rocket_json::catchers;
 
 #[get("/<status_code>")]
-fn error(status_code: u16) -> Result<()> {
-    let error = Error::from(Status::raw(status_code));
-    Err(error.extend(json!({"reason": "Hello, World!"})))
+fn error<'r>(status_code: u16) -> Result<'r> {
+    Err(Status::raw(status_code))
 }
 
 fn main() {
-    rocket::ignite().mount("/", routes![error]).launch();
+    rocket::ignite()
+        .register(catchers::All())
+        .mount("/", routes![error])
+        .launch();
 }
