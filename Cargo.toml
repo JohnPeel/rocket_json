@@ -9,6 +9,9 @@ keywords = ["rocket", "json"]
 categories = ["web-programming"]
 edition = "2018"
 
+[badges]
+travis-ci = { repository = "JohnPeel/rocket_json", branch = "master" }
+
 [dependencies]
 rocket = "0.4"
 rocket_contrib = "0.4"
