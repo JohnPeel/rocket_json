@@ -2,17 +2,6 @@ use rocket::http::Status;
 use rocket::request::Request;
 use rocket::response::{Responder, Response};
 
-#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq)]
-pub struct Error(pub Status);
-
-macro_rules! ctrs {
-    ($($name:ident),+) => {
-        $(
-            #[allow(non_upper_case_globals)]
-            pub const $name: Error = Error(Status::$name);
-         )+
-    }
-}
 /// A specialized [`Status`](`rocket::http::Status`) struct that responds json errors.
 ///
 /// This struct implements a [`Responder`](`rocket::response::Responder`) that will return json.
@@ -36,6 +25,18 @@ macro_rules! ctrs {
 ///     Ok(json!({ "example": 42 }))
 /// }
 /// # }
+#[derive(Debug, Clone, Copy, Hash, Eq, PartialEq)]
+pub struct Error(pub Status);
+
+macro_rules! ctrs {
+    ($($name:ident),+) => {
+        $(
+            #[allow(non_upper_case_globals)]
+            pub const $name: Error = Error(Status::$name);
+         )+
+    }
+}
+
 impl Error {
     ctrs! {
         BadRequest,

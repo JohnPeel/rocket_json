@@ -1,9 +1,9 @@
-use std::result;
 use crate::error;
+use std::result;
 
-/// A specialized [`Result`](`std::result::Result`) type that uses [`rocket_json::Error`](`Error`).
+/// A specialized [`Result`](`std::result::Result`) type that uses [`rocket_json::Error`](`error::Error`).
 ///
-/// This typedef is generally used to avoid writing out [`rocket_json::Error`](`Error`) directly and
+/// This typedef is generally used to avoid writing out [`rocket_json::Error`](`error::Error`) directly and
 /// is otherwise a direct mapping to [`Result`](`std::result::Result`).
 ///
 /// # Examples
