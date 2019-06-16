@@ -1,0 +1,14 @@
+[package]
+name = "rocket_json"
+version = "0.1.0"
+authors = ["John Peel <john@dgby.org>"]
+description = "This create provides a `Error` struct for json responses in Rocket."
+repository = "https://github.com/JohnPeel/rocket_json"
+license = "MIT"
+keywords = ["rocket", "json"]
+categories = ["web-programming"]
+edition = "2018"
+
+[dependencies]
+rocket = "0.4"
+rocket_contrib = "0.4"
